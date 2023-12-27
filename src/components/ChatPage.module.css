@@ -1,0 +1,55 @@
+.parent{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 0;
+}
+.sender{
+    min-width: 35px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 4px;
+}
+.time{
+  font-size: 10px;
+  letter-spacing: 0.2px;
+}
+/* width */
+.parent::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .parent::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .parent::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .parent::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .arrow{
+    position: absolute;
+    top: 20px;
+  }
+  .messageBox{
+  
+max-width: 80%;
+word-break: break-all; /* new */
+
+    
+  }
+.messageParent{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+}
+

@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ChatPage from "./components/ChatPage";
+import {socket} from "./socket"
+import { Button } from "@mui/material";
+import HideOnScroll from "./components/HideOnScroll";
 
 function App() {
+ const [startChatState,setStartChatState]= useState(true)
+
+  const handleStartChat = () => {
+    socket.emit('startChat');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+      <HideOnScroll></HideOnScroll>
+       <ChatPage chatStartState={setStartChatState}></ChatPage>
+     {startChatState && <Button
+        onClick={handleStartChat}
+        style={{marginLeft:"20px"}}
+        color="secondary"
+        size="large"
+        variant="outlined"
+>მოძებნე პარტნიორი</Button>}
+      </div>
+        );
 }
+
 
 export default App;
