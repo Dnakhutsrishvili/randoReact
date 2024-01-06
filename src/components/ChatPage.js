@@ -74,7 +74,6 @@ const ChatPage = (props) => {
      <div className={classes.messageParent}>
         <div>
         <ul>
-        <p>{text}</p>
           {messages.map((msg, index) => (
             <li  className={classes.parent} key={index}>
               <p  style={msg.sender===username?{color:"red" ,borderRight:"3px solid red" }:{color:"blue", borderRight:"3px solid blue"}} className={classes.sender}> <span>{msg.sender===username?"შენ :":"ის :"}</span><span className={classes.time}>{msg.time}</span></p>
@@ -87,6 +86,7 @@ const ChatPage = (props) => {
           <MessageForm  send={handleSendMessage}  message={message} setMessage={setMessage} ></MessageForm>
           <IconLabelButtons  send={handleSendMessage}></IconLabelButtons>
         </label>}  
+            <p className={classes.messageStateText}>{text}</p>
       </div>
   );
 };

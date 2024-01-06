@@ -15,6 +15,8 @@ function HideOnScroll(props) {
     target: window ? window() : undefined,
   });
 
+
+
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       {children}
@@ -27,6 +29,10 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
+function refreshPage() {
+  window.location.reload(false);
+}
+
 export default function HideAppBar(props) {
   return (
     <React.Fragment>
@@ -34,9 +40,11 @@ export default function HideAppBar(props) {
       <HideOnScroll {...props}>
         <AppBar>
           <Toolbar>
-            <Typography variant="h6" component="div">
-<HomeIcon></HomeIcon>
+            <Typography style={{cursor:"pointer"}} onClick={()=>{refreshPage()}} variant="h6" component="div">
+<HomeIcon ></HomeIcon>
+
  </Typography>
+
           </Toolbar>
         </AppBar>
       </HideOnScroll>

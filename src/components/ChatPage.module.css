@@ -53,3 +53,7 @@ word-break: break-all; /* new */
 
 }
 
+.messageStateText{
+  text-align: center;
+}
+

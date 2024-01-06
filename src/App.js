@@ -1,8 +1,9 @@
 import { useState } from "react";
 import ChatPage from "./components/ChatPage";
 import {socket} from "./socket"
-import { Button } from "@mui/material";
+
 import HideOnScroll from "./components/HideOnScroll";
+import WelcomeScreen from "./components/WelcomeScreen";
 
 function App() {
  const [startChatState,setStartChatState]= useState(true)
@@ -13,15 +14,11 @@ function App() {
 
   return (
       <div>
+     
       <HideOnScroll></HideOnScroll>
+      {startChatState && <WelcomeScreen handleStartChat={handleStartChat} ></WelcomeScreen>}
        <ChatPage chatStartState={setStartChatState}></ChatPage>
-     {startChatState && <Button
-        onClick={handleStartChat}
-        style={{marginLeft:"20px"}}
-        color="secondary"
-        size="large"
-        variant="outlined"
->მოძებნე პარტნიორი</Button>}
+    
       </div>
         );
 }
